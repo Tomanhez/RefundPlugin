@@ -42,6 +42,19 @@
         "symfony/dom-crawler": "4.1.8",
         "symfony/routing": "4.1.8"
     },
+    "scripts": {
+        "check": [
+            "composer validate --strict",
+            "@analyse"
+        ],
+        "fix": [
+            "vendor/bin/ecs check --ansi --no-progress-bar spec src tests/Behat --fix"
+        ],
+        "analyse": [
+            "vendor/bin/ecs check --ansi --no-progress-bar spec src tests/Behat",
+            "vendor/bin/phpstan analyse -c phpstan.neon -l max spec src/ tests/Behat/"
+        ]
+    },
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
