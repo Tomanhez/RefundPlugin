@@ -4,36 +4,35 @@ declare(strict_types=1);
 
 namespace Sylius\Plus\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpFoundation\Response;
 
-final class GreetingController extends Controller
+final class GreetingController
 {
-    /**
-     * @param string|null $name
-     *
-     * @return Response
-     */
+    /** @var EngineInterface */
+    private $engine;
+
+    public function __construct(EngineInterface $engine)
+    {
+        $this->engine = $engine;
+    }
+
     public function staticallyGreetAction(?string $name): Response
     {
-        return $this->render('@SyliusPlusPlugin/static_greeting.html.twig', ['greeting' => $this->getGreeting($name)]);
+        return $this->engine->renderResponse(
+            '@SyliusPlusPlugin/static_greeting.html.twig',
+            ['greeting' => $this->getGreeting($name)]
+        );
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return Response
-     */
     public function dynamicallyGreetAction(?string $name): Response
     {
-        return $this->render('@SyliusPlusPlugin/dynamic_greeting.html.twig', ['greeting' => $this->getGreeting($name)]);
+        return $this->engine->renderResponse(
+            '@SyliusPlusPlugin/dynamic_greeting.html.twig',
+            ['greeting' => $this->getGreeting($name)]
+        );
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return string
-     */
     private function getGreeting(?string $name): string
     {
         switch ($name) {

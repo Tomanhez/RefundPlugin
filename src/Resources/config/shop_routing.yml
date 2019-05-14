@@ -3,11 +3,11 @@
 acme_sylius_example_static_welcome:
     path: /static-welcome/{name}
     defaults:
-        _controller: SyliusPlusPlugin:Greeting:staticallyGreet
+        _controller: Sylius\Plus\Controller\GreetingController::staticallyGreetAction
         name: ~
 
 acme_sylius_example_dynamic_welcome:
     path: /dynamic-welcome/{name}
     defaults:
-        _controller: SyliusPlusPlugin:Greeting:dynamicallyGreet
+        _controller: Sylius\Plus\Controller\GreetingController::dynamicallyGreetAction
         name: ~
