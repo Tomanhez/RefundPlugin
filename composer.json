@@ -34,7 +34,8 @@
         "symfony/intl": "^3.4|^4.1",
         "symfony/web-profiler-bundle": "^3.4|^4.1",
         "symfony/web-server-bundle": "^3.4|^4.1",
-        "vimeo/psalm": "^3.2"
+        "vimeo/psalm": "^3.2",
+        "sensiolabs-de/deptrac-shim": "^0.5.0"
     },
     "conflict": {
         "symfony/symfony": "4.1.8",
@@ -54,7 +55,8 @@
         "analyse": [
             "vendor/bin/ecs check --ansi --no-progress-bar spec src tests/Behat",
             "vendor/bin/psalm",
-            "vendor/bin/phpstan analyse -c phpstan.neon -l max spec src/ tests/Behat/"
+            "vendor/bin/phpstan analyse -c phpstan.neon -l max spec src/ tests/Behat/",
+            "vendor/bin/deptrac"
         ]
     },
     "prefer-stable": true,

@@ -1,0 +1,22 @@
+paths:
+    - './src'
+
+layers:
+    -
+        name: 'Controller'
+        collectors:
+          -
+              type: 'className'
+              regex: '.*Controller.*'
+    -
+        name: 'Service'
+        collectors:
+          -
+              type: 'bool'
+              must_not:
+                -
+                    type: 'className'
+                    regex: '.*Controller.*'
+ruleset:
+    Controller:
+        - 'Service'
