@@ -22,7 +22,7 @@
         "lakion/mink-debug-extension": "^1.2.3",
         "phpspec/phpspec": "^5.0",
         "phpstan/phpstan-doctrine": "^0.11",
-        "phpstan/phpstan-shim": "^0.11",
+        "phpstan/phpstan": "^0.11",
         "phpstan/phpstan-symfony": "^0.11",
         "phpstan/phpstan-webmozart-assert": "^0.11",
         "phpunit/phpunit": "^8.0",
@@ -33,7 +33,9 @@
         "symfony/dotenv": "^4.2",
         "symfony/intl": "^3.4|^4.1",
         "symfony/web-profiler-bundle": "^3.4|^4.1",
-        "symfony/web-server-bundle": "^3.4|^4.1"
+        "symfony/web-server-bundle": "^3.4|^4.1",
+        "vimeo/psalm": "^3.2",
+        "sensiolabs-de/deptrac-shim": "^0.5.0"
     },
     "conflict": {
         "symfony/symfony": "4.1.8",
@@ -52,7 +54,9 @@
         ],
         "analyse": [
             "vendor/bin/ecs check --ansi --no-progress-bar spec src tests/Behat",
-            "vendor/bin/phpstan analyse -c phpstan.neon -l max spec src/ tests/Behat/"
+            "vendor/bin/psalm",
+            "vendor/bin/phpstan analyse -c phpstan.neon -l max spec src/ tests/Behat/",
+            "vendor/bin/deptrac"
         ]
     },
     "prefer-stable": true,
