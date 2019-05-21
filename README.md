@@ -18,6 +18,11 @@
     $ (cd tests/Application && bin/console doctrine:database:create -e test)
     $ (cd tests/Application && bin/console doctrine:schema:create -e test)
     ```
+## Demo
+
+Website: http://plus.demo.sylius.com
+User: minus
+Password: kaliber
 
 ## Testing
 
