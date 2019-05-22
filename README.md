@@ -21,8 +21,10 @@
 ## Demo
 
 Website: http://plus.demo.sylius.com
-User: minus
-Password: kaliber
+
+| User  | Password |
+|-------|----------|
+| minus | kaliber  |
 
 ## Testing
 
