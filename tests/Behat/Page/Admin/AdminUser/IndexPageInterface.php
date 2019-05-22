@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-namespace Tests\Sylius\Plus\Behat\Page\Admin;
+namespace Tests\Sylius\Plus\Behat\Page\Admin\AdminUser;
 
-use FriendsOfBehat\PageObjectExtension\Page\SymfonyPageInterface;
+use Sylius\Behat\Page\Admin\Crud\IndexPageInterface as BaseIndexPageInterface;
 use Sylius\Component\Core\Model\AdminUserInterface;
 
-interface IndexPageInterface extends SymfonyPageInterface
+interface IndexPageInterface extends BaseIndexPageInterface
 {
     public function getLastLoginDateAdministrator(AdminUserInterface $adminUser): string;
 }

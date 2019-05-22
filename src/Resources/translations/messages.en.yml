@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 sylius_plus:
     ui:
         last_login_ip: 'Last login IP'
+=======
+sylius:
+    plus:
+        ui:
+            last_login_date: 'Last login date'
+>>>>>>> Modified grid and improve behats

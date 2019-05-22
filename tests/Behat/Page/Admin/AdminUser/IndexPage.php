@@ -11,15 +11,15 @@
 
 declare(strict_types=1);
 
-namespace Tests\Sylius\Plus\Behat\Page\Admin;
+namespace Tests\Sylius\Plus\Behat\Page\Admin\AdminUser;
 
 use Behat\Mink\Element\NodeElement;
-use FriendsOfBehat\PageObjectExtension\Page\SymfonyPage;
+use Sylius\Behat\Page\Admin\Crud\IndexPage as baseIndexPage;
 use Sylius\Component\Core\Model\AdminUserInterface;
+use Webmozart\Assert\Assert;
 
-final class IndexPage extends SymfonyPage implements IndexPageInterface
+final class IndexPage extends BaseIndexPage implements IndexPageInterface
 {
-
     public function getRouteName(): string
     {
         return 'sylius_admin_admin_user_index';
@@ -27,9 +27,14 @@ final class IndexPage extends SymfonyPage implements IndexPageInterface
 
     public function getLastLoginDateAdministrator(AdminUserInterface $adminUser): string
     {
+        /** @var string $adminMail */
         $adminMail = $adminUser->getEmail();
 
-        /** @var NodeElement $adminRow */
-        return $lastLoginDate = $this->getDocument()->find('css', sprintf('table tbody tr:contains("%s") td:nth-child(6)', $adminMail))->getText();
+        /** @var NodeElement $lastLoginDate */
+        $lastLoginDate = $this->getDocument()->find('css', sprintf('table tbody tr:contains("%s") td:nth-child(6)', $adminMail));
+
+        Assert::notNull($lastLoginDate);
+
+        return $lastLoginDate->getText();
     }
 }

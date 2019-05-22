@@ -28,7 +28,7 @@ final class AdminUserContext implements Context
     }
 
     /**
-     * @Transform :adminEmail
+     * @Transform :adminUser
      */
     public function getAdminUser(string $administrator): AdminUserInterface
     {

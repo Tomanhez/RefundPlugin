@@ -35,6 +35,14 @@ final class AdminUserContext implements Context
     }
 
     /**
+     * @Given administrator :adminUser has logged in :date
+     */
+    public function administratorHasLoggedIn(AdminUserInterface $adminUser, string $date): void
+    {
+        $adminUser->setLastLogin(new \DateTime($date));
+    }
+
+    /**
      * @Given there is an administrator :email that recently logged in using :lastLoginIp IP address
      * @Given there is also an administrator :email that recently logged in using :lastLoginIp IP address
      */

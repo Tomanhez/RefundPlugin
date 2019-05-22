@@ -15,7 +15,7 @@ namespace Tests\Sylius\Plus\Behat\Context\Ui;
 
 use Behat\Behat\Context\Context;
 use Sylius\Component\Core\Model\AdminUserInterface;
-use Tests\Sylius\Plus\Behat\Page\Admin\IndexPageInterface;
+use Tests\Sylius\Plus\Behat\Page\Admin\AdminUser\IndexPageInterface;
 use Webmozart\Assert\Assert;
 
 final class AdminContext implements Context
@@ -37,18 +37,10 @@ final class AdminContext implements Context
     }
 
     /**
-     * @Then I should see :quantity administrators
+     * @Given I should see that administrator :adminUser has logged in :date
      */
-    public function iShouldSeeAdministrators(int $quantity): void
+    public function iShouldSeeThatAdministratorHasLoggedIn(AdminUserInterface $adminUser, string $date): void
     {
-        Assert::same($this->indexPage->countAdministrator(), $quantity);
-    }
-
-    /**
-     * @Given I should see that administrator :adminEmail has logged in :date
-     */
-    public function iShouldSeeThatAdministratorHasLoggedIn(AdminUserInterface $adminEmail, string $date): void
-    {
-        Assert::same($this->indexPage->getLastLoginDateAdministrator($adminEmail), $date);
+        Assert::same($this->indexPage->getLastLoginDateAdministrator($adminUser), $date);
     }
 }
