@@ -17,7 +17,7 @@ use Sylius\Component\Core\Model\AdminUserInterface as BaseAdminUserInterface;
 
 interface AdminUserInterface extends BaseAdminUserInterface
 {
-    public function getLastLoginIp(): string;
+    public function getLastLoginIp(): ?string;
 
     public function setLastLoginIp(string $lastLoginIp): void;
 }

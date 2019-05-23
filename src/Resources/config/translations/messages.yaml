@@ -1,4 +1,0 @@
-sylius:
-    plus:
-        ui:
-            last_login_ip: 'Last login ip'

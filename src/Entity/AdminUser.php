@@ -20,7 +20,7 @@ final class AdminUser extends BaseAdminUser implements AdminUserInterface
     /** @var string */
     private $lastLoginIp;
 
-    public function getLastLoginIp(): string
+    public function getLastLoginIp(): ?string
     {
         return $this->lastLoginIp;
     }
