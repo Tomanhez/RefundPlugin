@@ -1,0 +1,49 @@
+sylius_grid:
+    grids:
+        sylius_admin_admin_user:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%sylius.model.admin_user.class%"
+            sorting:
+                createdAt: desc
+            fields:
+                firstName:
+                    type: string
+                    label: sylius.ui.first_name
+                    sortable: ~
+                    position: 1
+                lastName:
+                    type: string
+                    label: sylius.ui.last_name
+                    sortable: ~
+                    position: 2
+                username:
+                    type: string
+                    label: sylius.ui.username
+                    sortable: ~
+                    position: 3
+                email:
+                    type: string
+                    label: sylius.ui.email
+                    sortable: ~
+                    position: 4
+                createdAt:
+                    type: datetime
+                    label: sylius.ui.registration_date
+                    sortable: ~
+                    options:
+                        format: d-m-Y H:i
+                    enabled: false
+                lastLoginIp:
+                    type: string
+                    label: sylius.plus.ui.last_login_ip
+                    sortable: false
+                    position: 5
+                enabled:
+                    type: twig
+                    label: sylius.ui.enabled
+                    sortable: ~
+                    position: 6
+                    options:
+                        template: "@SyliusUi/Grid/Field/enabled.html.twig"
