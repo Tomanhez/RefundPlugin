@@ -1,0 +1,5 @@
+sylius_admin_user:
+    resources:
+        admin_user:
+            classes:
+                model: Sylius\Plus\Entity\AdminUser
