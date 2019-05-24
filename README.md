@@ -13,14 +13,14 @@
     ```bash
     $ (cd tests/Application && yarn install)
     $ (cd tests/Application && yarn build)
-    $ (cd tests/Application && bin/console assets:install public -e test)
+    $ (cd tests/Application && APP_ENV=test bin/console assets:install public)
     
-    $ (cd tests/Application && bin/console doctrine:database:create -e test)
-    $ (cd tests/Application && bin/console doctrine:schema:create -e test)
+    $ (cd tests/Application && APP_ENV=test bin/console doctrine:database:create)
+    $ (cd tests/Application && APP_ENV=test bin/console doctrine:schema:create)
     ```
 ## Demo
 
-Website: http://plus.demo.sylius.com
+Website: https://plus.demo.sylius.com
 
 | User  | Password |
 |-------|----------|
@@ -28,7 +28,7 @@ Website: http://plus.demo.sylius.com
 
 ## Testing
 
-### Running plugin tests
+### Running tests
 
   - PHPUnit
 
@@ -63,7 +63,7 @@ Website: http://plus.demo.sylius.com
     3. Run test application's webserver on `localhost:8080`:
     
         ```bash
-        $ (cd tests/Application && bin/console server:run localhost:8080 -d public -e test)
+        $ (cd tests/Application && APP_ENV=test bin/console server:run localhost:8080 -d public)
         ```
     
     4. Run Behat:
@@ -72,18 +72,18 @@ Website: http://plus.demo.sylius.com
         $ vendor/bin/behat --tags="@javascript"
         ```
 
-### Runing plus in your browser
+### Runing Plus in your browser
 
 - Using `test` environment:
 
     ```bash
-    $ (cd tests/Application && bin/console sylius:fixtures:load -e test)
-    $ (cd tests/Application && bin/console server:run -d public -e test)
+    $ (cd tests/Application && APP_ENV=test bin/console sylius:fixtures:load)
+    $ (cd tests/Application && APP_ENV=test bin/console server:run -d public)
     ```
     
 - Using `dev` environment:
 
     ```bash
-    $ (cd tests/Application && bin/console sylius:fixtures:load -e dev)
-    $ (cd tests/Application && bin/console server:run -d public -e dev)
+    $ (cd tests/Application && APP_ENV=dev bin/console sylius:fixtures:load)
+    $ (cd tests/Application && APP_ENV=dev bin/console server:run -d public)
     ```
