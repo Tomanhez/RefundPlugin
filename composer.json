@@ -21,13 +21,14 @@
         "friends-of-behat/variadic-extension": "^1.1",
         "lakion/mink-debug-extension": "^1.2.3",
         "phpspec/phpspec": "^5.0",
-        "phpstan/phpstan-doctrine": "^0.11",
         "phpstan/phpstan": "^0.11",
+        "phpstan/phpstan-doctrine": "^0.11",
+        "phpstan/phpstan-phpunit": "^0.11",
         "phpstan/phpstan-symfony": "^0.11",
         "phpstan/phpstan-webmozart-assert": "^0.11",
-        "phpstan/phpstan-phpunit": "^0.11",
-        "proget-hq/phpstan-phpspec": "^0.2",
         "phpunit/phpunit": "^8.0",
+        "proget-hq/phpstan-phpspec": "^0.2",
+        "sensiolabs-de/deptrac-shim": "^0.5",
         "sensiolabs/security-checker": "^5.0",
         "sylius-labs/coding-standard": "^3.0",
         "symfony/browser-kit": "^3.4|^4.1",
@@ -36,15 +37,14 @@
         "symfony/intl": "^3.4|^4.1",
         "symfony/web-profiler-bundle": "^3.4|^4.1",
         "symfony/web-server-bundle": "^3.4|^4.1",
-        "vimeo/psalm": "^3.2",
-        "sensiolabs-de/deptrac-shim": "^0.5.0"
+        "vimeo/psalm": "^3.2"
     },
     "conflict": {
-        "symfony/symfony": "4.1.8",
         "symfony/browser-kit": "4.1.8",
         "symfony/dependency-injection": "4.1.8",
         "symfony/dom-crawler": "4.1.8",
-        "symfony/routing": "4.1.8"
+        "symfony/routing": "4.1.8",
+        "symfony/symfony": "4.1.8"
     },
     "scripts": {
         "check": [
@@ -57,7 +57,7 @@
         "analyse": [
             "vendor/bin/ecs check --ansi --no-progress-bar spec src tests/Behat",
             "vendor/bin/psalm",
-            "vendor/bin/phpstan analyse --ansi --no-progress -c phpstan.neon -l max spec src/ tests/Behat/",
+            "vendor/bin/phpstan analyse --ansi --no-progress -c phpstan.neon -l max spec src tests/Behat",
             "vendor/bin/deptrac --ansi"
         ]
     },
@@ -68,8 +68,11 @@
             "Tests\\Sylius\\Plus\\": "tests/"
         }
     },
-    "autoload-dev": {
-        "classmap": ["tests/Application/Kernel.php"]
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
     },
     "extra": {
         "branch-alias": {

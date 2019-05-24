@@ -10,3 +10,4 @@
 /behat.yml
 /phpspec.yml
 /.deptrac.cache
+/.phpunit.result.cache
