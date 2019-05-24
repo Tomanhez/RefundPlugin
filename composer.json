@@ -65,6 +65,7 @@
     "autoload": {
         "psr-4": {
             "Sylius\\Plus\\": "src/",
+            "spec\\Sylius\\Plus\\": "spec/",
             "Tests\\Sylius\\Plus\\": "tests/"
         }
     },
