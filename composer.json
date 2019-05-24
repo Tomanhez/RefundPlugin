@@ -25,6 +25,8 @@
         "phpstan/phpstan": "^0.11",
         "phpstan/phpstan-symfony": "^0.11",
         "phpstan/phpstan-webmozart-assert": "^0.11",
+        "phpstan/phpstan-phpunit": "^0.11",
+        "proget-hq/phpstan-phpspec": "^0.2",
         "phpunit/phpunit": "^8.0",
         "sensiolabs/security-checker": "^5.0",
         "sylius-labs/coding-standard": "^3.0",
@@ -55,8 +57,8 @@
         "analyse": [
             "vendor/bin/ecs check --ansi --no-progress-bar spec src tests/Behat",
             "vendor/bin/psalm",
-            "vendor/bin/phpstan analyse -c phpstan.neon -l max spec src/ tests/Behat/",
-            "vendor/bin/deptrac"
+            "vendor/bin/phpstan analyse --ansi --no-progress -c phpstan.neon -l max spec src/ tests/Behat/",
+            "vendor/bin/deptrac --ansi"
         ]
     },
     "prefer-stable": true,
