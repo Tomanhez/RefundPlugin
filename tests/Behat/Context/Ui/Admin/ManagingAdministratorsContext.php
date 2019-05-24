@@ -28,9 +28,9 @@ final class ManagingAdministratorsContext implements Context
     }
 
     /**
-     * @Then I should see that the administrator :administrator has :lastLoginIp address
+     * @Then I should see that the administrator :administrator has recently logged in using :lastLoginIp address
      */
-    public function iShouldSeeThatTheAdministratorHasAddress(string $administrator, string $lastLoginIp): void
+    public function iShouldSeeThatTheAdministratorHasRecentlyLoggedInUsingAddress(string $administrator, string $lastLoginIp): void
     {
         $this->indexPage->open();
 

@@ -19,6 +19,12 @@ final class IndexPage extends BaseIndexPage implements IndexPageInterface
 {
     public function getLastLoginIpOnPage(string $administrator): string
     {
-        return $this->getDocument()->find('css', sprintf('tr:contains("%s") td:nth-child(6)', $administrator))->getText();
+        $element = $this->getDocument()->find('css', sprintf('tr:contains("%s") td:nth-child(6)', $administrator));
+
+        if (null === $element) {
+            return '';
+        }
+
+        return $element->getText();
     }
 }

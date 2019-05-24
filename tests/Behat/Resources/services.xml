@@ -13,7 +13,7 @@
         </service>
 
         <service id="Tests\Sylius\Plus\Behat\Page\Admin\Crud\IndexPage" parent="sylius.behat.page.admin.crud.index" public="true">
-            <argument type="string">sylius_plus_admin_admin_user_index</argument>
+            <argument type="string">sylius_admin_admin_user_index</argument>
         </service>
     </services>
 </container>

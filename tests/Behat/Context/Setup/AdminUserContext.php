@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace Tests\Sylius\Plus\Behat\Context\Setup;
 
 use Behat\Behat\Context\Context;
-use Sylius\Component\Core\Model\AdminUserInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\User\Repository\UserRepositoryInterface;
+use Sylius\Plus\Entity\AdminUserInterface;
 
 final class AdminUserContext implements Context
 {
@@ -35,13 +35,14 @@ final class AdminUserContext implements Context
     }
 
     /**
-     * @Given there is an administrator :email with :lastLoginIp address
-     * @Given there is also an administrator :email with :lastLoginIp address
+     * @Given there is an administrator :email that recently logged in using :lastLoginIp IP address
+     * @Given there is also an administrator :email that recently logged in using :lastLoginIp IP address
      */
-    public function thereIsAlsoAnAdministratorWithAddress(string $email, string $lastLoginIp): void
+    public function thereIsAnAdministratorThatRecentlyLoggedInUsingIPAddress(string $email, string $lastLoginIp): void
     {
         /** @var AdminUserInterface $adminUser */
         $adminUser = $this->userFactory->createNew();
+        $adminUser->setLocaleCode('en_US');
         $adminUser->setEmail($email);
         $adminUser->setPassword('password');
         $adminUser->setLastLoginIp($lastLoginIp);
