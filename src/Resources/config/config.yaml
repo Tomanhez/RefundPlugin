@@ -1,0 +1,3 @@
+imports:
+    - { resource: "@SyliusPlusPlugin/Resources/config/resources.yaml" }
+    - { resource: "@SyliusPlusPlugin/Resources/config/grids/sylius_admin_admin_user.yaml" }
