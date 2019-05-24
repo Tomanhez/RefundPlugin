@@ -11,13 +11,13 @@
 
 declare(strict_types=1);
 
-namespace Tests\Sylius\Plus\Behat\Context\Ui\Admin;
+namespace Tests\Sylius\Plus\Behat\Context\Ui;
 
 use Behat\Behat\Context\Context;
 use Tests\Sylius\Plus\Behat\Page\Admin\Crud\IndexPageInterface;
 use Webmozart\Assert\Assert;
 
-final class ManagingAdministratorsContext implements Context
+final class AdminUserContext implements Context
 {
     /** @var IndexPageInterface */
     private $indexPage;
@@ -32,8 +32,14 @@ final class ManagingAdministratorsContext implements Context
      */
     public function iShouldSeeThatTheAdministratorHasRecentlyLoggedInUsingAddress(string $administrator, string $lastLoginIp): void
     {
-        $this->indexPage->open();
-
         Assert::same($this->indexPage->getLastLoginIpOnPage($administrator), $lastLoginIp);
+    }
+
+    /**
+     * @Then I should see that administrator :adminUser has logged in :date
+     */
+    public function iShouldSeeThatAdministratorHasLoggedIn(string $adminUser, string $date): void
+    {
+        Assert::same($this->indexPage->getLastLoginDateOnPage($adminUser), $date);
     }
 }

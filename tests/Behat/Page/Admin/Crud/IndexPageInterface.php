@@ -17,5 +17,7 @@ use Sylius\Behat\Page\Admin\Crud\IndexPageInterface as BaseIndexPageInterface;
 
 interface IndexPageInterface extends BaseIndexPageInterface
 {
+    public function getLastLoginDateOnPage(string $adminUser): string;
+
     public function getLastLoginIpOnPage(string $administrator): string;
 }

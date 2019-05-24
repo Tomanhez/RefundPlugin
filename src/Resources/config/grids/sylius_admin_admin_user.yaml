@@ -29,21 +29,23 @@ sylius_grid:
                     sortable: ~
                     position: 4
                 createdAt:
+                    enabled: false
+                lastLogin:
                     type: datetime
-                    label: sylius.ui.registration_date
+                    label: sylius_plus.ui.last_login_date
                     sortable: ~
+                    position: 5
                     options:
                         format: d-m-Y H:i
-                    enabled: false
                 lastLoginIp:
                     type: string
                     label: sylius_plus.ui.last_login_ip
-                    sortable: false
-                    position: 5
+                    sortable: ~
+                    position: 6
                 enabled:
                     type: twig
                     label: sylius.ui.enabled
                     sortable: ~
-                    position: 6
+                    position: 7
                     options:
                         template: "@SyliusUi/Grid/Field/enabled.html.twig"

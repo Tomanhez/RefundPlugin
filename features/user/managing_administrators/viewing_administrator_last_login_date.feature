@@ -13,6 +13,6 @@ Feature: Viewing administrator's last login date
 
     @ui
     Scenario: Viewing last login date of all administrators
-        When I browse administrators page
+        When I browse administrators
         And I should see that administrator "donald@gov.us.com" has logged in "25-06-2018 16:24"
         And I should see that administrator "obama@gov.us.com" has logged in "21-06-2019 08:24"

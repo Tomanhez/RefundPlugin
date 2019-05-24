@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace Tests\Sylius\Plus\Behat\Context\Transform;
 
 use Behat\Behat\Context\Context;
-use Sylius\Component\Core\Model\AdminUserInterface;
 use Sylius\Component\User\Repository\UserRepositoryInterface;
+use Sylius\Plus\Entity\AdminUserInterface;
 
 final class AdminUserContext implements Context
 {
@@ -30,10 +30,10 @@ final class AdminUserContext implements Context
     /**
      * @Transform :adminUser
      */
-    public function getAdminUser(string $administrator): AdminUserInterface
+    public function getAdminUser(string $email): AdminUserInterface
     {
         /** @var AdminUserInterface $adminUser */
-        $adminUser = $this->adminUserRepository->findOneByEmail($administrator);
+        $adminUser = $this->adminUserRepository->findOneByEmail($email);
 
         return $adminUser;
     }

@@ -4,28 +4,20 @@
     <services>
         <defaults public="true" />
 
-        <service id="Tests\Sylius\Plus\Behat\Context\Ui\Admin\ManagingAdministratorsContext">
+        <service id="Tests\Sylius\Plus\Behat\Context\Ui\AdminUserContext">
             <argument type="service" id="Tests\Sylius\Plus\Behat\Page\Admin\Crud\IndexPage" />
         </service>
         <service id="Tests\Sylius\Plus\Behat\Context\Setup\AdminUserContext">
             <argument type="service" id="sylius.factory.admin_user" />
             <argument type="service" id="sylius.repository.admin_user" />
-        </service>
-        <service id="Tests\Sylius\Plus\Behat\Page\Admin\Crud\IndexPage" parent="sylius.behat.page.admin.crud.index" public="true">
-            <argument type="string">sylius_admin_admin_user_index</argument>
-        </service>
-        <service id="Tests\Sylius\Plus\Behat\Page\Admin\IndexPage" parent="sylius.behat.symfony_page" public="true" />
-        <service id="Tests\Sylius\Plus\Behat\Page\Admin\AdminUser\IndexPage" parent="sylius.behat.page.admin.crud.index" public="true" >
-            <argument>sylius_admin_admin_user_index</argument>
+            <argument type="service" id="sylius.manager.admin_user" />
         </service>
         <service id="Tests\Sylius\Plus\Behat\Context\Transform\AdminUserContext">
             <argument type="service" id="sylius.repository.admin_user" />
         </service>
-        <service id="Tests\Sylius\Plus\Behat\Context\Setup\AdminUserContext">
-            <argument type="service" id="sylius.repository.admin_user" />
-        </service>
-        <service id="Tests\Sylius\Plus\Behat\Context\Ui\AdminContext">
-            <argument type="service" id="Tests\Sylius\Plus\Behat\Page\Admin\AdminUser\IndexPage" />
+
+        <service id="Tests\Sylius\Plus\Behat\Page\Admin\Crud\IndexPage" parent="sylius.behat.page.admin.crud.index" public="true">
+            <argument type="string">sylius_admin_admin_user_index</argument>
         </service>
     </services>
 </container>
