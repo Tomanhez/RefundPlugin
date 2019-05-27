@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Sylius\Plus\Behat\Context\Transform;
+namespace Tests\Sylius\Plus\Behat\Context\Transform\Admin;
 
 use Behat\Behat\Context\Context;
 use Sylius\Component\User\Repository\UserRepositoryInterface;

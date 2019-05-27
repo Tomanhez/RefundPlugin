@@ -19,5 +19,5 @@ interface IndexPageInterface extends BaseIndexPageInterface
 {
     public function getLastLoginDateOnPage(string $adminUser): string;
 
-    public function getLastLoginIpOnPage(string $administrator): string;
+    public function getLastLoginIpOnPage(string $adminUser): string;
 }

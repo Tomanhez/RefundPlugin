@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Sylius\Plus\Behat\Context\Ui;
+namespace Tests\Sylius\Plus\Behat\Context\Ui\Admin;
 
 use Behat\Behat\Context\Context;
 use Tests\Sylius\Plus\Behat\Page\Admin\Crud\IndexPageInterface;

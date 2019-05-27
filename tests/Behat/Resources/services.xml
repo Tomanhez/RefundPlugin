@@ -4,15 +4,15 @@
     <services>
         <defaults public="true" />
 
-        <service id="Tests\Sylius\Plus\Behat\Context\Ui\AdminUserContext">
+        <service id="Tests\Sylius\Plus\Behat\Context\Ui\Admin\AdminUserContext">
             <argument type="service" id="Tests\Sylius\Plus\Behat\Page\Admin\Crud\IndexPage" />
         </service>
-        <service id="Tests\Sylius\Plus\Behat\Context\Setup\AdminUserContext">
+        <service id="Tests\Sylius\Plus\Behat\Context\Setup\Admin\AdminUserContext">
             <argument type="service" id="sylius.factory.admin_user" />
             <argument type="service" id="sylius.repository.admin_user" />
             <argument type="service" id="sylius.manager.admin_user" />
         </service>
-        <service id="Tests\Sylius\Plus\Behat\Context\Transform\AdminUserContext">
+        <service id="Tests\Sylius\Plus\Behat\Context\Transform\Admin\AdminUserContext">
             <argument type="service" id="sylius.repository.admin_user" />
         </service>
 

@@ -17,9 +17,9 @@ use Sylius\Behat\Page\Admin\Crud\IndexPage as BaseIndexPage;
 
 final class IndexPage extends BaseIndexPage implements IndexPageInterface
 {
-    public function getLastLoginIpOnPage(string $administrator): string
+    public function getLastLoginIpOnPage(string $adminUser): string
     {
-        $element = $this->getDocument()->find('css', sprintf('tr:contains("%s") td:nth-child(7)', $administrator));
+        $element = $this->getDocument()->find('css', sprintf('tr:contains("%s") td:nth-child(6) #lastLoginIp', $adminUser));
 
         if (null === $element) {
             return '';
@@ -30,7 +30,7 @@ final class IndexPage extends BaseIndexPage implements IndexPageInterface
 
     public function getLastLoginDateOnPage(string $adminUser): string
     {
-        $element = $this->getDocument()->find('css', sprintf('tr:contains("%s") td:nth-child(6)', $adminUser));
+        $element = $this->getDocument()->find('css', sprintf('tr:contains("%s") td:nth-child(6) #lastLogin', $adminUser));
 
         if (null === $element) {
             return '';
